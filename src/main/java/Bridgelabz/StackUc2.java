@@ -1,8 +1,7 @@
 package Bridgelabz;
 
 
-public class StackUc1 {
-
+public class StackUc2 {
     public Node head;
     public Node tail;
     static class Node {
@@ -40,12 +39,32 @@ public class StackUc1 {
         }
     }
 
-    public static void main(String[] args) {
-        StackUc1 operStack = new StackUc1();
-        operStack.push(70);
-        operStack.push(30);
-        operStack.push(56);
+    // Using pop method to pop all elements
+    public void pop() {
+        Node current = head;
+        while (current != null) {
+            if (current == head) {
+                head = head.next;
+                current = head;
+            }
+        }
+    }
 
-        operStack.display();
+    // Using peak method to find top of the Element
+    public int peak(){
+        Node current1 = head;
+        return current1.data;
+    }
+
+    public static void main(String[] args) {
+        StackUc2 list = new StackUc2();
+        list.push(70);
+        list.push(30);
+        list.push(56);
+
+        list.display();
+        System.out.println("Peak Element is = "+list.peak());
+        list.pop();
+        list.display();
     }
 }
