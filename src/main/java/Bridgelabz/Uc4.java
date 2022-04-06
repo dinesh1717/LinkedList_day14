@@ -1,6 +1,6 @@
 package Bridgelabz;
 
-public class Uc2 {
+public class Uc4 {
 
     public Node head;
     public Node tail;
@@ -22,8 +22,8 @@ public class Uc2 {
             tail = newNode;
         }
         else {
-            newNode.next = head;
-            head = newNode;
+            tail.next = newNode;
+            tail = newNode;
         }
     }
 
@@ -34,17 +34,32 @@ public class Uc2 {
             System.out.println("List is empty");
         }
         while (current != null) {
-            System.out.println(current.data +" ");
+            System.out.println(current.data);
             current = current.next;
         }
     }
-    public static void main(String[] args) {
-        Uc2 list = new Uc2();
 
-        list.add(70);
-        list.add(30);
+    // Insert the value between Given position
+    public void insert(int c,int position){
+        Node newNode = new Node(c);
+        Node temp = head;
+        for (int i=1; i < position-1; i++) {
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next=newNode;
+
+        System.out.println("30 Added sucessfully between 56 and 70\n");
+    }
+
+    public static void main(String[] args) {
+        Uc4 list = new Uc4();
+
         list.add(56);
+        list.add(70);
+        list.insert(30,2);
         list.display();
 
     }
 }
+
