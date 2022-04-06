@@ -1,6 +1,7 @@
 package Bridgelabz;
 
-public class QueueUc1 {
+public class Uc2 {
+
     public Node head;
     public Node tail;
     static class Node {
@@ -13,20 +14,20 @@ public class QueueUc1 {
         }
     }
 
-    // Append datas One By One
-    public void append(int datas){
+    // Adding new Node with data
+    public void add(int datas){
         Node newNode = new Node(datas);
         if(head == null){
             head = newNode;
             tail = newNode;
         }
         else {
-            tail.next = newNode;
-            tail = newNode;
+            newNode.next = head;
+            head = newNode;
         }
     }
 
-    // Display all the Node with value
+    // Display the Node with value
     public void display() {
         Node current = head;
         if(head == null) {
@@ -37,13 +38,13 @@ public class QueueUc1 {
             current = current.next;
         }
     }
-
     public static void main(String[] args) {
-        QueueUc1 operQueue = new QueueUc1();
-        operQueue.append(70);
-        operQueue.append(30);
-        operQueue.append(56);
+        Uc2 list = new Uc2();
 
-        operQueue.display();
+        list.add(70);
+        list.add(30);
+        list.add(56);
+        list.display();
+
     }
 }
