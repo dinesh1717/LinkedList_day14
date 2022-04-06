@@ -1,6 +1,6 @@
 package Bridgelabz;
 
-public class Uc5 {
+public class Uc6 {
 
     public Node head;
     public Node tail;
@@ -39,17 +39,29 @@ public class Uc5 {
         }
     }
 
-    // Deleting the FirstNode with Value
+    // Deleting the LastNode with Value
     public void pop() {
-        Node current = head;
-        if (current == head) {
-            head = head.next;
-            current = head;
+
+        //Checks if the list is empty
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        } else {
+            if (head != tail) {
+                Node current = head;
+                while (current.next != tail) {
+                    current = current.next;
+                }
+                tail = current;
+                tail.next = null;
+            } else {
+                head = tail = null;
+            }
         }
     }
 
     public static void main(String[] args) {
-        Uc5 list = new Uc5();
+        Uc6 list = new Uc6();
 
         list.add(70);
         list.add(30);
