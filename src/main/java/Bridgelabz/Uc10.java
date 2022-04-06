@@ -1,6 +1,6 @@
 package Bridgelabz;
 
-public class Uc9 {
+public class Uc10 {
     public Node head;
     public Node tail;
     static class Node {
@@ -38,35 +38,37 @@ public class Uc9 {
         }
     }
 
-    // Delete the Node With value
-    public void delete(int key){
-        Node prev = null;
-        Node current = head;
+    // Sort the LinkedList
+    public void sortList() {
+        Node current = head, temp = null;
+        int index;
+        if (head == null) {
+            System.out.println("LinkedList is Empty");
+        }
+        else {
+            while (current != null) {
+                temp = current.next;
 
-        while (current != null) {
-            if (current.data == key) {
-                if (current == head) {
-                    head = head.next;
-                    current = head;
-                } else {
-                    prev.next = current.next;
-                    current = current.next;
+                while (temp != null) {
+                    if (current.data > temp.data) {
+                        index = current.data;
+                        current.data = temp.data;
+                        temp.data = index;
+                    }
+                    temp = temp.next;
                 }
-            } else {
-                prev = current;
                 current = current.next;
             }
         }
     }
 
     public static void main(String[] args) {
-        Uc9 uc9 = new Uc9();
-        uc9.add(56);
-        uc9.add(30);
-        uc9.add(40);
-        uc9.add(70);
-        uc9.delete(40);
-        uc9.display();
-
+        Uc10 uc10 = new Uc10();
+        uc10.add(56);
+        uc10.add(30);
+        uc10.add(40);
+        uc10.add(70);
+        uc10.sortList();
+        uc10.display();
     }
 }
